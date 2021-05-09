@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="element/index.css">
+  <script src="element/vue.js"></script>
+  <script src="element/axios.js"></script>
+  <script src="element/index.js"></script>
+  <script type="text/javascript" src="common.js"></script>
+  <title>维护页面</title>
+  <style>
+    html,body{margin: 0; padding: 0;}
+    .el-header {
+      line-height: 60px;
+      font-weight: bold;
+      background-image: linear-gradient(#b3dcec, #3393af);
+      color: #fff;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div id="app">
+    <el-container >
+      <el-header>
+      <el-button v-show="!show" style="float: right; padding: 3px 0" type="text" @click="show=true"><-返回</el-button>  
+        河道水生态监控移动端（维护人员）
+      </el-header>
+      <el-main v-show="show">
+        <el-card v-for="station in stations" :key="station.id" style="margin-bottom: 12px;" @click.native="rowClicked(station.id)">
+          {{ station.name }}
+          <el-divider></el-divider>
+          {{station.memo}}
+        </el-card>
+      </el-main>
+
+      <el-main v-show="!show" >
+        {{ station.name }}
+        <template>
+          <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+            <el-tab-pane label="基本信息" name="first"></el-tab-pane>
+            <el-tab-pane label="状态" name="second"></el-tab-pane>
+            <el-tab-pane label="操作" name="third"></el-tab-pane>
+          </el-tabs>
+          <div v-show="activeName=='first'">
+            <div   style=" width: 50%;height: 50vw;background: #ccc;">地图</div>
+            {{station.memo}}
+          </div>
+          <div v-show="activeName=='second'">
+            最近活动时间：{{new Date(station.recentActive).format("yyyy-MM-dd hh:mm")}} <br>
+            <table>
+              <tr>
+                <th>储水瓶1</th>
+                <th>{{onoff(station.storage1)}}</th>
+              </tr>
+              <tr>
+                <th>储水瓶2</th>
+                <th>{{onoff(station.storage2)}}</th>
+              </tr>
+              <tr>
+                <th>储水瓶3</th>
+                <th>{{onoff(station.storage3)}}</th>
+              </tr>
+              <tr>
+                <th>储水瓶4</th>
+                <th>{{onoff(station.storage4)}}</th>
+              </tr>
+              <tr>
+                <th>储水瓶5</th>
+                <th>{{onoff(station.storage5)}}</th>
+              </tr>
+              <tr>
+                <th>储水瓶6</th>
+                <th>{{onoff(station.storage6)}}</th>
+              </tr>
+              <tr>
+                <th>智能锁</th>
+                <th>{{onoff(station.lockOpen)}}</th>
+              </tr>
+              <tr>
+                <th>多参数</th>
+                <th>{{onoff(station.generalOpen)}}</th>
+              </tr>
+              <tr>
+                <th>总磷</th>
+                <th>{{onoff(station.phosphorusOpen)}}</th>
+              </tr>
+              <tr>
+                <th>cod</th>
+                <th>{{onoff(station.codOpen)}}</th>
+              </tr>
+              <tr>
+                <th>流速</th>
+                <th>{{onoff(station.streamSpeedOpen)}}</th>
+              </tr>
+              <tr>
+                <th>泵</th>
+                <th>{{onoff(station.pumpOpen)}}</th>
+              </tr>
+            </table>           
+          </div>
+          <div v-show="activeName=='third'">
+            <el-button @click="onlock()">开锁</el-button>
+            <el-button @click="safe(true)">维护</el-button>
+            <el-button @click="safe(false)">结束维护</el-button>
+          </div>
+        </template>
+      </el-main>
+
+    </el-container>
+  </div>
+  
+  <script>
+    var vue = new Vue({
+      el: '#app',
+      data: {
+        station:{},
+        show:true,
+        stations: [],
+        activeName: 'first'
+      },
+      created: function() {
+        axios.get('/stork/api/station').then(response => {
+          this.stations = response.data.data
+        })
+      },
+      methods:{
+        rowClicked:function(id){
+           axios.get('/stork/api/station/'+id).then(response => {
+            this.station=response.data.data
+            this.show=false
+         })
+        },
+      onoff:function(num){
+        if(num==1)
+          return '开启'
+        else
+          return '关闭'
+      },
+      onlock(){
+        console.log('开锁')
+      },
+      safe(pan){
+        axios.post('/stork/api/station/'+this.station.id+"?op=maintain",{params:{required: pan}}).then(response => {})
+      }
+      }
+    })
+  </script>
+
+  
+</body>
+</html>

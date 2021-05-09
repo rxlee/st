@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="stork/common.css">
+    <link rel="stylesheet" href="element/index.css">
+
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="element/vue.js"></script>
+    <script src="element/axios.js"></script>
+    <script src="element/index.js"></script>
+    <script src="stork/common.js"></script>
+
+    <title>取样送样人员</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 顶端bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <img src="img/logo.png" alt=""> <span class="title"></span>
+      </div>
+    </nav>
+
+    <!-- 底端bar -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <ul class="nav navbar-nav">
+        <li :class="func === 'todo' ? 'active' : ''"><a href="#" @click="func='todo'">待办事项</a></li>
+        <li :class="func === 'done' ? 'active' : ''"><a href="#" @click="func='done'">已办事项</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style="margin-right: 15px;">
+        <li :class="'navbar-right ' + (func === 'mine' ? 'active' : '')"><a href="#" @click="func='mine'">我的资料</a></li>
+      </ul>
+    </nav>
+
+    <!-- 界面内容主体 -->
+    <div class="container-fluid" style="margin-top: 72px;">
+      <el-container>
+
+        <!-- 待办事项 -->
+        <div v-show="func === 'todo'">
+          <el-card style="margin-bottom: 20px;">
+            <div slot="header" class="clearfix">
+              芳草园水站 样品#5
+              <el-tag type="success" size="mini" style="float:right">送样中</el-tag>
+            </div>
+            <p>实际取样时间： 11-30 10:04 （34分钟前）</p>
+            <p>限定送达时间： 11-30 15:00 （4小时22分钟）</p>
+          </el-card>
+          <el-card style="margin-bottom: 20px;">
+            <div slot="header" class="clearfix">
+              美湖园排污口 样品#1
+              <el-tag type="danger" size="mini" style="float:right">待取样</el-tag>
+            </div>
+            <p>任务下达时间： 11-30 10:32 （12分钟前）</p>
+            <p>限定送达时间： 11-30 16:00 （5小时11分钟）</p>
+          </el-card>
+          <el-card style="margin-bottom: 20px;">
+            <div slot="header" class="clearfix">
+              团泊支路排污口 样品#3
+              <el-tag type="danger" size="mini" style="float:right">待取样</el-tag>
+            </div>
+            <p>任务下达时间： 11-30 10:32 （12分钟前）</p>
+            <p>限定送达时间： 11-30 16:00 （5小时11分钟）</p>
+          </el-card>
+        </div>
+        
+        <!-- 已办事项 -->
+        <div v-show="func === 'done'">
+          <el-table :data="doneList">
+            <el-table-column prop="station" label="水站"></el-table-column>
+            <el-table-column prop="bottle" label="瓶" width="36"></el-table-column>
+            <el-table-column prop="time" label="送达时间"></el-table-column>
+            <el-table-column label="时效" width="48">
+              <template slot-scope="scope">
+                <el-tag v-if="scope.row.bottle == 2" type="success" size="mini">按时</el-tag>
+                <el-tag v-if="scope.row.bottle != 2" type="danger" size="mini">超时</el-tag>
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+        
+        <!-- 我的资料 -->
+        <div v-show="func === 'mine'">
+          <el-form :model="myprofile" label-width="80px">
+            <el-form-item label="姓名">
+              {{ myprofile.name }}
+            </el-form-item>
+            <el-form-item label="电话号码">
+              <span v-if="profileMode != 'modify'">{{ myprofile.telephone }}</span>
+              <el-input v-show="profileMode == 'modify'" v-model="myprofile.telephone"></el-input>
+            </el-form-item>
+            <el-form-item label="身份权限">
+              {{ myprofile.role }}
+            </el-form-item>
+            <el-form-item>
+              <el-button v-if="profileMode != 'modify'" @click="profileMode = 'modify'">修改</el-button>
+              <el-button v-show="profileMode == 'modify'" @click="profileMode = 'show'" type="primary">保存</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
+      </el-container>
+    </div>
+  </div>
+
+  <!-- 页面脚本 -->
+  <script src="sample-test.js"></script>
+
+
+</body>
+
+</html>

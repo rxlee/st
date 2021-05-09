@@ -1,0 +1,21 @@
+server:
+   port: 8080
+hardware:
+   master-port: 2317 # DTU接入端口
+upload:
+   discharge-photo-base-dir: d:/xxx
+logging:
+   level:
+      root: info
+      cn.jy: debug
+spring:
+   datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:~/dev-dbs/stork;AUTO_SERVER=TURE
+      username: sa
+   h2:
+      console:
+         enabled: true
+         path: /dbadmin
+         settings:
+            web-allow-others: true

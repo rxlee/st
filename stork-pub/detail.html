@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>河道水资源生态监控：文章内容</title>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="element/index.css">
+  <!-- import Vue before Element -->
+  <script src="element/vue.js"></script>
+  <script src="element/axios.js"></script>
+  <!-- 引入组件库 -->
+  <script src="element/index.js"></script>
+  <script src="common.js"></script>
+
+  <style>
+		body{
+			background-image: url('./img/home-bg.jpg');
+			background-position: top center;
+		}
+    #wrapper{
+      width: 1200px;
+      margin:0 auto;
+    }
+
+	</style>
+</head>
+
+<body>
+  
+
+  <div id="wrapper">
+    <div id="app">
+      <el-container>
+        <el-header height="180px" style="padding-top:40px">
+          <img src="img/logo.png" alt="">
+        </el-header>
+        <el-main>
+          <el-row>
+            <el-col>
+              <el-card>
+                <div slot="header" class="clearfix">
+                  <span>{{title}}</span>
+                  <el-button style="float: right; padding: 3px 0" type="text" @click="back">返回</el-button>
+                </div>
+                <el-row>
+                  <el-col style="min-height: 560px;">
+                    {{content}}
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-col>
+              <div style="text-align: center;color:white">
+                <p>版权所有：业主单位</p>
+                <p>技术支持：中科超远</p>
+              </div>
+            </el-col>
+          </el-row>
+        </el-main>
+      </el-container>
+    </div>
+  </div>
+  <script>
+    vue = new Vue({
+      el: '#app',
+      data: {
+          title:'',
+          content:''
+      },
+      created: function() {
+        axios.get(this.site.base + 'article/' + params.id).then(response=>{
+          this.title=response.data.data.title
+          this.content=response.data.data.content
+          console.log(response.data.data)
+        })
+      },
+      methods: {
+        back: function() {
+          window.history.back()
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

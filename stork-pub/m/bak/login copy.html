@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="element/index.css">
+  <script src="element/vue.js"></script>
+  <script src="element/axios.js"></script>
+  <script src="element/index.js"></script>
+  <script src="common.js"></script>
+  <title>登录</title>
+
+  <style>
+    html,body{margin: 0; padding: 0;}
+    body{
+      background-color: #b3dcec;
+    }
+  </style>
+</head>
+<body>
+  <input>
+  <div id="app">
+    <el-container>
+      <el-main>
+        <el-row>
+          <el-col>
+            <div style="margin-top: 30%;margin-left: auto;margin-right: auto;width: 75%;">
+              <el-card>
+                <div slot="header" class="clearfix">“三水”协同移动端</div>
+                <el-form>
+                  <el-form-item label="">
+                    <el-input placeholder="账号（手机号）" v-model="login.username"></el-input>
+                  </el-form-item>
+                  <el-form-item label="">
+                    <el-input type="password" placeholder="密码" v-model="login.password"></el-input>
+                  </el-form-item>
+                    <el-button @click="loginSubmit" type="primary" style="width: 100%;">登 录</el-button>
+                </el-form>
+              </el-card>
+            </div>
+          </el-col>
+        </el-row>
+        
+      </el-main>
+
+    </el-container>
+  </div>
+  
+  <script>
+    vue = new Vue({
+      el: '#app',
+      data: {
+        accountId: undefined,
+        login: {
+          username: 'admin',
+          password: 'zkcy2020'
+        }
+      },
+      created: function() {
+        console.log(navigator.geolocation.getCurrentPosition)
+        navigator.geolocation.getCurrentPosition(
+          function(post){console.log('pos ================ ', pos)},
+          function(err){console.log('pos error ================ ', err)}, 
+          null
+        )
+      },
+      methods: {
+        loginSubmit: function() {
+          Http.post({
+            url: '/stork/api/account/login',
+            data: this.login
+          }).then(res => {
+            if (res.code != 20000) {
+              this.$message({
+                message: res.message,
+                type: 'error'
+              })
+              return
+            }
+            this.redirectByRole(res.data.token)
+          })
+        },
+        redirectByRole: function(token) {
+          Http.get({
+            url: '/stork/api/account/info',
+            params: {token: token}
+          }).then(res => {
+            const role = res.data.roles[0]
+            window.localStorage.setItem('uid', res.data.uid)
+            window.localStorage.setItem('uname', res.data.name)
+            window.localStorage.setItem('uphone', res.data.telephone)
+            window.localStorage.setItem('role', role)
+            switch (role) {
+              case Role.sampleDelivery:
+                window.location = 'sample-delivery.html'
+                break;
+              case Role.sampleTest:
+                window.location = 'sample-test.html'
+                break;
+              default:
+                this.$message({
+                  message: '无法识别身份角色',
+                  type: 'error'
+                })
+                break;
+            }
+          })
+        }
+      }
+    })
+  </script>
+
+  
+</body>
+</html>

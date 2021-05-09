@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>花名册</title>
+  <script src="element/vue.js"></script>
+  <script src="element/axios.js"></script>
+
+</head>
+
+<body class="container-fluid">
+
+  <div id="app">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>名称</th><th>硬件编号</th><th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tr v-for="station in stations">
+        <td v-text="station.name"></td>
+        <td v-text="station.sn"></td>
+        <td><button @click="lockRelease(station.sn)" class="btn btn-primary btn-lg">开锁</button></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <script>
+    var vue = new Vue({
+      el: '#app',
+      data: {
+        stations: []
+      },
+      methods: {
+        lockRelease: function(sn) {
+          console.log('lockRelease:', sn)
+          axios.post('http://47.99.62.184/stork/api/lock/' + sn + '?op=release').then(function(response){
+            console.log(response.data)
+          })
+        }
+      },
+      created: function () {
+        axios.get('http://47.99.62.184/stork/api/station').then(function(response){
+          vue.stations = response.data.data
+        })
+      }
+    })
+  </script>
+</body>
+
+</html>

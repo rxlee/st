@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>河道水资源生态监控：文章列表</title>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="element/index.css">
+  <!-- import Vue before Element -->
+  <script src="element/vue.js"></script>
+  <script src="element/axios.js"></script>
+  <!-- 引入组件库 -->
+  <script src="element/index.js"></script>
+  <script src="common.js"></script>
+
+  <style>
+    body {
+      background-image: url('./img/home-bg.jpg');
+      background-position: top center;
+    }
+
+    #wrapper {
+      width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // 看看页面地址传递了哪些参数，根据这些参数，决定本页面的行为
+    console.log(params)
+  </script>
+
+  <div id="wrapper">
+    <div id="app">
+      <el-container>
+        <el-header height="180px" style="padding-top:40px">
+          <img src="img/logo.png" alt="">
+        </el-header>
+        <el-main>
+          <el-row>
+            <el-col>
+              <el-card>
+                <div slot="header" class="clearfix">
+                  <span>{{ title }}</span>
+                  <el-button style="float: right; padding: 3px 0" type="text" @click="back">返回</el-button>
+                </div>
+                <el-row>
+                  <el-col style="min-height: 560px;">
+                    <el-table :data="list" :show-header="false" @row-click="rowClicked">
+                      <el-table-column prop="title">
+                        <template slot-scope="scope">
+                          <span>{{scope.row.title}}</span>
+                        </template>
+                      </el-table-column>
+                      <el-table-column prop="date" width="90">
+                        <template slot-scope="scope">
+                          <span style="font-size: 10px;">{{ scope.row.publishTime | fmt}}</span>
+                        </template>
+                      </el-table-column>
+                    </el-table>
+                  </el-col>
+                </el-row>
+                <el-row>
+                  <el-col style="text-align: center;">
+                    <el-pagination @current-change="pager" layout="prev, pager, next" :total="50">
+                    </el-pagination>
+                  </el-col>
+                </el-row>
+              </el-card>
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-col>
+              <div style="text-align: center;color:white">
+                <p>版权所有：业主单位</p>
+                <p>技术支持：中科超远</p>
+              </div>
+            </el-col>
+          </el-row>
+        </el-main>
+      </el-container>
+    </div>
+  </div>
+  <script>
+    vue = new Vue({
+      el: '#app',
+      data: {
+        param: '',
+        list: []
+      },
+      filters: {
+        fmt: function(time) {
+          return new Date(time).format("MM-dd hh:mm")
+        }
+      },
+      computed: {
+        title: function () {
+          console.log(params.category)
+          return {
+            'notice': '通知公告',
+            'punish': '警告处罚',
+            'praise': '表扬嘉奖'
+          }[params.category]
+        }
+      },
+      created: function () {
+        axios.get(this.site.base + 'article', { params: { category: params.category } }).then(response => {
+          this.list = response.data.data
+        })
+      },
+      methods: {
+        back: function () {
+          window.history.back()
+        },
+        rowClicked: function(r) {
+          window.location = 'detail.html?id=' + r.id
+        },
+        pager: function (pageIndex) {
+          axios.get(this.site.base + 'article', { params: { category: params.category, pageIndex: (pageIndex - 1) * 15 } }).then(response => {
+            this.list = response.data.data
+          })
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

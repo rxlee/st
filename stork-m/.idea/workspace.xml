@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:dev-v2" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36951b07-cda2-4fac-863a-bc52795bac95" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/components/sample/Delivery.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sample/Delivery.vue" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev-v2" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1lOup77hdf4iAADr7NBR2oG5IV1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36951b07-cda2-4fac-863a-bc52795bac95" name="Default Changelist" comment="" />
+      <created>1607480638651</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607480638651</updated>
+      <workItem from="1607480641753" duration="475000" />
+      <workItem from="1607482590779" duration="260000" />
+      <workItem from="1607683562212" duration="12000" />
+      <workItem from="1607683624485" duration="23000" />
+      <workItem from="1607936231699" duration="4130000" />
+      <workItem from="1608816223407" duration="930000" />
+      <workItem from="1608995284284" duration="725000" />
+      <workItem from="1608996513598" duration="11000" />
+      <workItem from="1608996547139" duration="25000" />
+      <workItem from="1608996788246" duration="60000" />
+      <workItem from="1608996879697" duration="5000" />
+      <workItem from="1608996907492" duration="159000" />
+      <workItem from="1608997075961" duration="11000" />
+      <workItem from="1608997133225" duration="5000" />
+      <workItem from="1608997149059" duration="17000" />
+      <workItem from="1608997217404" duration="37000" />
+      <workItem from="1608997264372" duration="65000" />
+      <workItem from="1608997340418" duration="38000" />
+      <workItem from="1608997808059" duration="37000" />
+      <workItem from="1608997854604" duration="14000" />
+      <workItem from="1608998002144" duration="313000" />
+      <workItem from="1608998343335" duration="39000" />
+      <workItem from="1608998560264" duration="69000" />
+      <workItem from="1611048563002" duration="171000" />
+      <workItem from="1611048767004" duration="41000" />
+      <workItem from="1611048823062" duration="66000" />
+      <workItem from="1611125247066" duration="49000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev-v2" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1611048719746">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611048719746" />
+    <state x="270" y="57" key="SettingsEditor" timestamp="1611048884010">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="270" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1611048884010" />
+    <state x="555" y="199" key="git4idea.merge.GitMergeDialog" timestamp="1607482773659">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="555" y="199" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1607482773659" />
+  </component>
+</project>

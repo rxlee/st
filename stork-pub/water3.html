@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>“三水”协同智慧河道综合管理平台</title>
+
+  <link rel="stylesheet" href="jquerysfq/css/accordion.css">
+  <script src="jquerysfq/js/jquery-1.11.3.min.js"></script>
+  <script src="jquerysfq/js/accordion.js"></script> 
+
+  <style>
+    html,body{padding:0;margin:0}
+    body{padding-top: 120px;}
+    body{background-image: url('img/home-bg.jpg');background-size: cover;}
+  </style>
+</head>
+
+<body>
+  <div style="width: 980px;margin: 0 auto;">
+    <div style="height: 120px;">
+      <h1>“三水”协同智慧河道综合管理平台</h1>
+    </div>
+    <div class="w-accor w-accor1" id="Accor1">
+        <ul class="swiper-wrapper clearfix">
+            <li class="swiper-slide" nav="1">
+                <div class="item clearfix">
+                    <div class="img_ar"><img src="img/water3-nav04.jpg"/></div>
+                    <div class="cont_ar">
+                        <div class="dec_ar">
+                            <h3>管理后台</h3>
+                            <div class="acr_p"></div>
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#"></a>
+            </li>
+            <li class="swiper-slide" nav="2">
+                <div class="item clearfix">
+                    <div class="img_ar"><img src="img/water3-nav02.jpg"/></div>
+                    <div class="cont_ar">
+                        <div class="dec_ar">
+                            <h3>水生态</h3>
+                            <div class="acr_p"></div>
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#"></a>
+            </li>
+            <li class="swiper-slide" nav="3">
+                <div class="item clearfix">
+                    <div class="img_ar"><img src="img/water3-nav03.jpg"/></div>
+                    <div class="cont_ar">
+                        <div class="dec_ar">
+                            <h3>水环境</h3>
+                            <div class="acr_p"></div>
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#"></a>
+            </li>
+            <li class="swiper-slide" nav="4">
+                <div class="item clearfix">
+                    <div class="img_ar"><img src="img/water3-nav01.jpg"/></div>
+                    <div class="cont_ar">
+                        <div class="dec_ar">
+                            <h3>水资源</h3>
+                            <div class="acr_p"></div>
+                        </div>
+                    </div>
+                    </div>
+                    <a href="#"></a>
+            </li>
+        </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+  $(function(){
+      accor($('#Accor1'),'66%',500,false,false);  //参数1:Dom节点，参数2：展开图宽度(值可正数像素值或百分比）、参数3：速度（ms）、参数4：初始是否展开（是true，否false）、参数5：是否点击展开（是true，否false）
+      $('.swiper-slide').click(function(e) {
+        const nav = $(e.currentTarget).attr('nav')
+        switch(nav) {
+          case '1':
+            window.parent.postMessage('manage','http://localhost:9527')
+            break;
+          case '3':
+            window.location = 'enviroment.html'
+            break;
+          default:
+            break;
+        }
+      })
+  });
+  </script>
+  <!--w-accor1 end--> 
+</body>
+
+</html>

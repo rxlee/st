@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: stork
+Implementation-Version: 1.0
+Built-By: ASUS
+Implementation-Vendor-Id: cn.jy
+Build-Jdk: 1.8.0_261
+Implementation-URL: https://spring.io/projects/spring-boot/stork
+Created-By: Maven Integration for Eclipse
+

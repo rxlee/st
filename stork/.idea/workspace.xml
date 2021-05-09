@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="07b3cac4-569e-4545-a349-af13e12ef6ac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.mvn/wrapper/MavenWrapperDownloader.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.mvn/wrapper/MavenWrapperDownloader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/StorkApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/StorkApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/enforce/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/equip/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/monitor/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/site/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/station/controller/StationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/station/dao/Station.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/station/dao/StationDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/station/service/StationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/sys/controller/AccountController$AddBody.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/sys/controller/AccountController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/sys/dao/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/sys/dao/AccountDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/sys/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/sys/service/AccountService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/biz/urgent/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/exception/DataDuplicatedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/exception/DataDuplicatedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/exception/DataNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/exception/DataNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/ModbusConst.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/ModbusSwapHandler$ContextPool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/ModbusSwapHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/ModbusTcpListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/event/HoldingRegisterReadEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/event/HoldingRegisterWriteEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/event/OthersReadEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/event/SendDirectEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/event/SigninEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/packet/AHoldingRegisterPacket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/packet/HoldingRegisterReadPacket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/packet/HoldingRegisterWritePacket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/packet/IPacket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/modbus/util/BytesUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/util/MD5.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/util/MD5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/web/Resp.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/java/cn/jy/stork/web/Resp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/application-prd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/application-prd.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/src/main/resources/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bin/src/main/resources/db/schema.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev-v2" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1lYqve1HUegUyQSnOsjBC1oeuKi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/mySpace/demo" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StorkApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="stork" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.jy.stork.StorkApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07b3cac4-569e-4545-a349-af13e12ef6ac" name="Default Changelist" comment="" />
+      <created>1607784633190</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607784633190</updated>
+      <workItem from="1607784672462" duration="1742000" />
+      <workItem from="1609324696900" duration="234000" />
+      <workItem from="1611809069324" duration="311000" />
+      <workItem from="1611809503534" duration="1007000" />
+      <workItem from="1611810547586" duration="59000" />
+      <workItem from="1617946678717" duration="6426000" />
+      <workItem from="1618028844863" duration="185000" />
+      <workItem from="1618029065028" duration="3386000" />
+      <workItem from="1618119060914" duration="2822000" />
+      <workItem from="1618129657785" duration="30000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="xsl1211" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

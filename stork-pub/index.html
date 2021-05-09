@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>河道水资源生态监控：首页</title>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="element/index.css">
+  <!-- import Vue before Element -->
+  <script src="element/vue.js"></script>
+  <script src="element/axios.js"></script>
+  <!-- 引入组件库 -->
+  <script src="element/index.js"></script>
+
+  <script type="text/javascript" src="common.js"></script>
+  <style>
+    body {
+      background-image: url('./img/home-bg.jpg');
+      background-position: top center;
+    }
+
+    #wrapper {
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    .el-card {
+      height:340px
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="app">
+      <el-container>
+        <el-header height="180px" style="padding-top:40px">
+          <img src="img/logo.png" alt="">
+          <div style="float:right">
+            <el-link href="stork" type="danger">管理后台</el-link>
+          </div>
+        </el-header>
+        <el-main>
+          <el-row :gutter="20" style="margin-bottom: 20px;">
+            <el-col :span="8">
+              <el-card>
+                <div slot="header" class="clearfix">
+                  <span>通知公告</span>
+                  <el-button style="float: right; padding: 3px 0" type="text" @click="linkDemo">更多...</el-button>
+                </div>
+
+                <el-table :data="noticeList" :show-header="false" @row-click="rowClicked">
+                  <el-table-column prop="title">
+                    <template slot-scope="scope">
+                      <span>{{scope.row.title}}</span>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="date" width="90">
+                    <template slot-scope="scope">
+                      <span style="font-size: 10px;">{{new Date(scope.row.publishTime).format("MM-dd hh:mm")}}</span>
+                    </template>
+                  </el-table-column>
+                </el-table>
+
+              </el-card>
+            </el-col>
+
+            <el-col :span="8">
+              <el-card>
+                <div slot="header" class="clearfix">
+                  <span>表扬嘉奖</span>
+                  <el-button style="float: right; padding: 3px 0" type="text" @click="linkDemo2">更多...</el-button>
+                </div>
+
+                <el-table :data="praiseList" :show-header="false" @row-click="rowClicked">
+                  <el-table-column prop="title">
+                    <template slot-scope="scope">
+                      <span>{{scope.row.title}}</span>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="date" width="90">
+                    <template slot-scope="scope">
+                      <span style="font-size: 10px;">{{new Date(scope.row.publishTime).format("MM-dd hh:mm")}}</span>
+                    </template>
+                  </el-table-column>
+                </el-table>
+              </el-card>
+            </el-col>
+
+            <el-col :span="8">
+              <el-card>
+                <div slot="header" class="clearfix">
+                  <span>警告处罚</span>
+                  <el-button style="float: right; padding: 3px 0" type="text" @click="linkDemo3">更多...</el-button>
+                </div>
+                <el-table :data="punishList" :show-header="false" @row-click="rowClicked">
+                  <el-table-column prop="title">
+                    <template slot-scope="scope">
+                      <span>{{scope.row.title}}</span>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="date" width="90">
+                    <template slot-scope="scope">
+                      <span style="font-size: 10px;">{{new Date(scope.row.publishTime).format("MM-dd hh:mm")}}</span>
+                    </template>
+                  </el-table-column>
+                </el-table>
+              </el-card>
+            </el-col>
+          </el-row>
+          <el-row :gutter="20">
+            <el-col :span="12">
+              <el-card>
+                <div slot="header" class="clearfix">
+                  <span>咨询建议</span>
+                  <el-button style="float: right; padding: 3px 0" type="text"  @click="linkCon1">更多...</el-button>
+                </div>
+                <el-table :data="suggestList" :show-header="false" @row-click="rowClickedcon">
+                  <el-table-column prop="title">
+                    <template slot-scope="scope">
+                      <span>{{scope.row.title}}</span>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="date" width="90">
+                    <template slot-scope="scope">
+                      <span style="font-size: 10px;">{{new Date(scope.row.postTime).format("MM-dd hh:mm")}}</span>
+                    </template>
+                  </el-table-column>
+                </el-table>
+              </el-card>
+
+            </el-col>
+            <el-col :span="12">
+              <el-card>
+                <div slot="header" class="clearfix">
+                  <span>投诉监督</span>
+                  <el-button style="float: right; padding: 3px 0" type="text" @click="linkCon2">更多...</el-button>
+                </div>
+                <el-table :data="monitorList" :show-header="false" @row-click="rowClickedcon">
+                  <el-table-column prop="title">
+                    <template slot-scope="scope">
+                      <span>{{scope.row.title}}</span>
+                    </template>
+                  </el-table-column>
+                  <el-table-column prop="date" width="90">
+                    <template slot-scope="scope">
+                      <span style="font-size: 10px;">{{new Date(scope.row.postTime).format("MM-dd hh:mm")}}</span>
+                    </template>
+                  </el-table-column>
+                </el-table>
+              </el-card>
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-col>
+              <div style="text-align: center;color:white">
+                <p>版权所有：业主单位</p>
+                <p>技术支持：中科超远</p>
+              </div>
+            </el-col>
+          </el-row>
+        </el-main>
+      </el-container>
+    </div>
+  </div>
+  <script>
+    vue = new Vue({
+      el: '#app',
+      data: {
+        praiseList: [],
+        noticeList: [],
+        punishList: [],
+        suggestList:[],
+        monitorList:[]
+      },
+      created: function () {
+        this.fetchArticles('praise', data => { this.praiseList = data })
+        this.fetchArticles('notice', data => { this.noticeList = data })
+        this.fetchArticles('punish', data => { this.punishList = data })
+        this.fetchConverse('suggest',data=>{this.suggestList=data})
+        this.fetchConverse('monitor',data=>{this.monitorList=data})
+      },
+      methods: {
+        fetchArticles: function (category, callback) {
+          axios.get(this.site.base + 'article', { params: { category: category, pageSize: 5 } }).then(response => {
+            callback(response.data.data)
+          })
+        },
+        fetchConverse: function (category,callback) {
+          axios.get(this.site.base + 'conversition',{params:{category: category,pageSize: 5}}).then(response => {
+            callback(response.data.data)
+          })
+        },
+        rowClicked: function(r) {
+          window.location = 'detail.html?id=' + r.id
+        },
+        rowClickedcon: function(r) {
+          window.location = 'detail2.html?id=' + r.id
+        },
+        linkDemo: function () {
+          window.location = 'list.html?category=notice'
+        },
+        linkDemo2: function () {
+          window.location = 'list.html?category=praise'
+        },
+        linkDemo3: function () {
+          window.location = 'list.html?category=punish'
+        },
+        linkCon1:function(){
+          window.location = 'list2.html?category=suggest'
+        },
+        linkCon2:function(){
+          window.location = 'list2.html?category=monitor'
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

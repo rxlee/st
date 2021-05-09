@@ -1,0 +1,12 @@
+server:
+   servlet:
+      context-path: /stork/api
+spring:
+   profiles:
+      active: prd
+   jackson:
+      serialization:
+         write-dates-as-timestamps: true
+mybatis:
+   configuration:
+      map-underscore-to-camel-case: true

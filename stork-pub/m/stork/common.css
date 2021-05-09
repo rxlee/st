@@ -1,0 +1,28 @@
+body {
+    padding-bottom: 70px;
+}
+
+.navbar-fixed-top {
+    background-image: linear-gradient(#5ca3b9, #b3dcec);
+    border-bottom: solid 1px #5ca3b9;
+}
+
+.navbar-fixed-top img {
+    float: left
+}
+
+.navbar-fixed-top .title {
+    color: #fff;
+    font-size: 1.4em;
+    float: left;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.navbar-fixed-top .title:after {
+    content: '三水协同'
+}
+
+.el-container>div {
+    width: 100%;
+}

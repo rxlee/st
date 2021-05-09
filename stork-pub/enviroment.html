@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="element/index.css">
+  <link rel="stylesheet" href="./enviroment.css">
+  <script src="element/vue.js"></script>
+  <script src="element/axios.js"></script>
+  <script src="element/index.js"></script>
+  <script src="datav/datav.map.vue.js"></script>
+  <script src="datav/charts.map.js"></script>
+  <script src="common.js"></script>
+  <script src="enviroment.js"></script>
+  <title>河道水生态资源综合可视化</title>
+</head>
+
+<body>
+  <div id="app">
+    
+    <dv-full-screen-container style="background-image: url('img/show-bg.jpg');">
+
+      <dv-border-box-11 title="团泊河道水资源生态综合监控" :title-width="608">
+        <el-row>
+
+          <el-col :span="4" style="padding-top: 40px;padding-left:10px">
+            <div id="eva-radar-chart" style="width: 310px;height:310px"></div>
+          </el-col>
+
+          <el-col :span="6" style="padding-top: 60px;">
+            <dv-border-box-4 :color="['#9f303c', '#6f99c9']">
+              <div style="padding: 32px 24px 12px 24px;height:220px">
+                <dv-scroll-board :config="config" style="width:500px;height:220px" />
+              </div>
+            </dv-border-box-4>
+          </el-col>
+
+          
+          <el-col :span="6" style="padding-top: 80px;">
+            <dv-border-box-4 :reverse="true" :color="['#9f303c', '#6f99c9']">
+              <div style="padding: 8px 24px 36px 24px;height:220px">
+                <dv-scroll-board :config="config" style="width:500px;height:220px" />
+              </div>
+            </dv-border-box-4>
+          </el-col>
+
+          <el-col :span="5" style="padding-top: 80px;">
+            <div style="padding-left: 24px;height:240px">
+              <dv-border-box-8 style="padding:3px">
+                <div v-if="!videoOn">
+                  <p style="padding:76px 0 0 0;line-height:16px;color:#6f99c9;font-size:16px;text-align: center; ">监控视频</p>
+                  <p style="color:#6f99c9;font-size:12px;text-align: center; ">
+                    点击水站监控图标可播放
+                  </p>
+                </div>
+                <div v-if="videoOn" style="background-color: #000;width:100%;height:100%">
+                  <iframe
+                    id="iframe"
+                    ref="iframe"
+                    src=""
+                    frameborder="0"
+                    width="100%"
+                    height="100%"
+                    scrolling="no"
+                  ></iframe>
+                </div>
+              </dv-border-box-8>
+            </div>
+          </el-col>
+          <el-col :span="3" style="color: #6f99c9;text-align: right;padding-top:60px;padding-right: 48px;">
+            <div style="font-size: 18px;">{{ date }}</div>
+            <div style="font-size: 35px;">{{ time }}</div>
+            <div style="float:right"><dv-decoration-3 style="width:140px;height:40px;" /></div>
+          </el-col>
+
+        </el-row>
+        <!-- 分割1 -->
+        <div style="padding: 0 20px;">
+          <dv-decoration-4 :reverse="true" style="width:95%;height:5px;"></dv-decoration-4>
+        </div>
+        
+        <el-row>
+          <el-col>
+            <div style="height:324px;">
+              <div style="padding-top:90px;width:254px;" class="video-trigger">
+                <img src="img/video.png" @click="videoStart(1)">
+              </div>
+              <div style="padding-top:80px;width:192px;" class="video-trigger">
+                <img src="img/video.png" @click="videoStart(2)">
+              </div>
+              <div style="padding-top:60px;width:835px;" class="video-trigger">
+                <img src="img/video.png" @click="videoStart(3)">
+              </div>
+              <div style="padding-top:64px;width:495px;" class="video-trigger">
+                <img src="img/video.png" @click="videoStart(4)">
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+        
+        <!-- 最底 -->
+        <el-row>
+          <el-col style="padding: 0 20px">
+            <div v-for="station in stations" :key="station.code" style="width: 20%;float:left">
+              <station-block :title="station.title" :code="station.code" :align="station.align" :eva="station.eva">
+            </div>
+          </el-col>
+        </el-row>
+        <!-- END:: 最底 -->
+
+      </dv-border-box-11>
+
+    </dv-full-screen-container>
+  </div>
+
+  <!-- 组件模板:: 下方水站块 -->
+  <template id="station-block">
+    <div>
+      <div :style="'color:#4fc3df;padding:0 8px;text-align:' + align">
+        <div style="font-size:11px">{{ code }}</div>
+        <div style="font-size:14px">{{ title }}</div>
+      </div>
+      <dv-border-box-1 style="height:340px" :color="borderColor">
+        <div style="padding:24px;padding-bottom:0;height:110px;color:#4fc3df;" 
+          class="debug-border">
+          <el-row class="indicators">
+            <el-col :span=12>
+              <p><span class="indicator-label" >水温：</span>{{ realtime.t }}</p>
+              <p><span class="indicator-label">流速：</span>{{ realtime.s }}</p>
+              <p><span class="indicator-label">溶氧：</span>{{ realtime.oxy }}</p>
+              <p><span class="indicator-label">酸碱：</span>{{ realtime.ph }}</p>
+              <p><span class="indicator-label">总磷：</span>{{ realtime.p }}</p>
+            </el-col>
+            <el-col :span=12>
+              <p><span class="indicator-label">浊度：</span>{{ realtime.tb }}</p>
+              <p><span class="indicator-label">COD：</span>{{ realtime.cod }}</p>
+              <p><span class="indicator-label">电导：</span>{{ realtime.cd }}</p>
+              <p><span class="indicator-label" :style="eva>0?'color:#ff333f':''">氨氮：</span>{{ realtime.nh }}</p>
+            </el-col>
+          </el-row>
+        </div>
+        <div ref="ch" style="height:104px;padding:0 20px 0 0" class="debug-border"></div>
+        <div style="padding:0 20px;" class="debug-border">
+          <dv-conical-column-chart :config="config" style="width:100%;height:80px;" />
+        </div>
+      </dv-border-box-1>
+    </div>
+  </template>
+
+  <script src="./component-station.js"></script>
+  <script src="./component-vue-show.js"></script>
+</body>
+
+</html>

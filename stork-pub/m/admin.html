@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="stork/common.css">
+  <link rel="stylesheet" href="element/index.css">
+
+  <script src="bootstrap/js/bootstrap.js"></script>
+  <script src="element/vue.js"></script>
+  <script src="element/axios.js"></script>
+  <script src="element/index.js"></script>
+  <script src="stork/common.js"></script>
+
+  <title>超级管理员入口</title>
+
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- 顶端bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <img src="img/logo.png" alt=""> <span class="title"></span>
+      </div>
+    </nav>
+
+    <!-- 底端bar -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+      <ul class="nav navbar-nav">
+        <li :class="func === 'mine' ? 'active' : ''"><a href="#" @click="func='mine'">我的三水</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" style="margin-right: 15px;">
+        <li :class="func === 'other' ? 'active' : ''"><a href="#" @click="func='other'">身份模拟</a></li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid" style="margin-top: 72px;">
+
+
+      <el-container>
+
+        <div v-if="func === 'mine'">
+          超级管理员管理功能!!!
+        </div>
+
+        <div v-if="func === 'other'">
+          <el-header>
+            <el-alert title="当前用户是超级管理员，可模拟身份访问所有人员的界面。请在下面选择一个进入（但切勿执行任何业务操作，以免因为身份问题造成业务混乱）" type="error"
+              :closable="false">
+            </el-alert>
+          </el-header>
+          <el-main>
+            <el-row style="margin-top: 24px;">
+              <el-col :span="24">
+                <el-link href="sample-delivery.html" size="large">取样送样人员</el-link>
+                <el-divider></el-divider>
+                <el-link href="sample-test.html">样品检验员</el-link>
+                <el-divider></el-divider>
+                <el-link href="">巡查员</el-link>
+                <el-divider></el-divider>
+                <el-link href="river-chief.html">河长</el-link>
+              </el-col>
+            </el-row>
+          </el-main>
+        </div>
+
+      </el-container>
+
+
+    </div>
+  </div>
+
+  <script>
+    vue = new Vue({
+      el: '#app',
+      data: {
+        func: 'mine',
+        entries: []
+      },
+      created: function() {
+
+      },
+      methods: {
+      }
+    })
+  </script>
+
+
+</body>
+
+</html>

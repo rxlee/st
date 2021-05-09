@@ -1,0 +1,25 @@
+.navbar.fixed-top {
+  background-image: linear-gradient(#5ca3b9, #b3dcec);
+  border-bottom: solid 1px #5ca3b9;
+}
+
+.navbar.fixed-top .title {
+  color: #fff;
+  font-size: 1.4em;
+}
+
+.navbar.fixed-bottom{
+  line-height: 50px;
+}
+
+.navbar.fixed-bottom {
+  padding:0
+}
+
+.navbar.fixed-bottom li{
+  padding:0 12px;
+}
+
+.navbar.fixed-bottom .active {
+  background-color: #ccc;
+}
